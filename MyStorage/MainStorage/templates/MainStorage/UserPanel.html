@@ -31,7 +31,7 @@
 
 <div class="yourstorage">
     {% if request.user.is_authenticated %}
-        <h1><p>Здравствуйте, {{ user.username }}, ваше хранилище</p><a href="{% url 'logout' %}">| выход</a></h1>
+        <h1><p>Здравствуйте, {{ user.username }}, ваше хранилище</p><a class="Logout" href="{% url 'logout' %}">| выход</a></h1>
     {% endif %}
 </div>
 

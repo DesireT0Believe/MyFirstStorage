@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.core.checks import messages
 from django.core.paginator import Paginator
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, redirect, get_object_or_404
@@ -8,6 +9,7 @@ from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth import logout as django_logout
+from django.contrib import messages
 
 from MyStorage import settings
 from .forms import *
@@ -68,6 +70,7 @@ def registerUser(request):
 
 def loginUser(request):
     if request.method == 'POST':
+        form = AuthenticationForm(request.POST)
         user_username = request.POST['username']
         user_password = request.POST['password']
         user = authenticate(request, username=user_username, password=user_password)
@@ -75,6 +78,7 @@ def loginUser(request):
             login(request, user)
             return redirect('storage')
         else:
+            messages.error(request, 'Некорекктный логин или пароль')
             return redirect('home')
     else:
         form = AuthenticationForm()
