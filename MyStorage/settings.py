@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-%iq_4#($(*+!csr6f0zkfrdi04i(#g=!#oqjs6-#6lf6o%wocc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'thedesiretobelieve.pythonanywhere.com',
+    'localhost',
+    '127.0.0.1']
 
 
 # Application definition
@@ -77,7 +80,12 @@ WSGI_APPLICATION = 'MyStorage.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'TheDesireToBelieve.mysql.pythonanywhere-services.com',
+        'USER': 'TheDesireToBelie',
+        'PASSWORD': '',
+        'HOST': 'TheDesireToBelieve.mysql.pythonanywhere-services.com',
+        'PORT': '3306'
+
     }
 }
 
