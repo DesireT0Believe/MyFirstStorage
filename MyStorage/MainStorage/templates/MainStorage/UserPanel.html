@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Хранилище</title>
+    <link rel="icon" href="data:;base64,=">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'MainStorage/css/UserPanelDesign.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+</head>
+<body>
+<aside>
+    <span>ITStorage</span>
+
+    <div class="files">
+    <h4>Работа с файлами</h4>
+    <ul>
+        <a href="{% url 'add_file' %}"><li><i class="fas fa-cloud-upload-alt"></i> Добавить файл</li></a>
+    </ul>
+    </div>
+
+    <h3>Навигация</h3>
+    <ul>
+        <a href="{% url 'logout' %}"><li><i class="fas fa-home"></i> Главная</li></a>
+        <a href=""><li><i class="fas fa-address-card"></i> Про нас</li></a>
+        <a href=""><li><i class="fas fa-paper-plane"></i> Контакты</li></a>
+    </ul>
+</aside>
+
+<div class="yourstorage">
+    {% if request.user.is_authenticated %}
+        <h1><p>Здравствуйте, {{ user.username }}, ваше хранилище</p><a class="Logout" href="{% url 'logout' %}">| выход</a></h1>
+    {% endif %}
+</div>
+
+<div class="TabelFiles">
+    <table>
+
+    <tr><th>Наименование</th><th>Файл(download)</th><th>Дата загрузки</th><th>Дата редактирования</th><th>Описание</th></tr>
+        {% for p in allFiles %}
+            <tr><td>{{ p.title }}</td><td><a href={{ p.saveFile.url }} download>{{ p.filename }}</a></td><td>{{ p.time_save }}</td><td>{{ p.time_update }}</td><td>{{ p.file_describe }}</td><td><a href="delete/{{p.id}}">Удалить</a></td></tr>
+        {% endfor %}
+</table>
+</div>
+
+</body>
+</html>

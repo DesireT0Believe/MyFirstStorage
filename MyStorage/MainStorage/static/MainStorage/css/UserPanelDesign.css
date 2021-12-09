@@ -1,0 +1,125 @@
+body{
+    background: #EDEAE5;
+}
+
+.yourstorage{
+    font-family: Impact;
+    text-align: center;
+    color: #f2f2f2;
+    background-color: #00887A;
+    margin-top: 0;
+    padding: 10px 15px 30px 0;
+}
+
+span{
+    margin-left: 20px;
+    font-size: 50px;
+    text-shadow: 0px 1px 10px #000;
+}
+
+aside{
+    float: left;
+    background: #026670;
+    width: 20%;
+    height: 100vh;
+    padding: 1.5%;
+    color: #fff;
+    border-right: 3px solid #025970;
+}
+ul {
+    font-size: 15px;
+}
+
+aside h3{
+    margin-left: 30px;
+    margin-top: 35px;
+    font-size: 30px;
+    text-shadow: 1px 0 1px #000;
+}
+
+aside h4{
+    margin-left: 37px;
+    margin-top: 35px;
+    font-size: 30px;
+    text-shadow: 1px 0 1px #000;
+}
+
+
+aside ul{list-style: none}
+aside ul li{
+    font-size: 20px;
+    text-shadow: 1px 0 1px #000;
+    color: azure;
+    display: block;
+    margin-top: 15px;
+    margin-left: 10px;
+    transition: all .3s;
+}
+
+aside ul li:hover, aside ul a:hover{
+    color: #52ab98;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+.Files ul {list-style: none}
+.Files ul{
+    margin-left: 285px;
+    display: block;
+    font-size: 30px;
+}
+
+.Files ul p{
+    margin-top: -5px;
+    font-size: 20px;
+    display: block;
+}
+
+.Files ul :hover h2{
+    text-decoration: none;
+}
+
+.Files h2{
+    font-size: 30px;
+    text-shadow: 1px 0 1px lightskyblue;
+    transition: all .3s;
+}
+
+table {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  font-size: 14px;
+  background: white;
+  max-width: 80%;
+  width: 80%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th {
+  font-weight: normal;
+  border-bottom: 2px solid #6678b1;
+  border-right: 30px solid white;
+  border-left: 30px solid white;
+  color: #039;
+  padding: 8px 2px;
+}
+
+td {
+  border-bottom: 1px solid #ccc;
+  color: #669;
+  padding: 9px 8px;
+  transition: .3s linear;
+}
+
+tr:hover td {
+    color: #6699ff;
+    background: #e8edff;
+}
+
+.yourstorage a{
+    color: white;
+}
+
+.Logout{
+    font-size: 25px;
+}
