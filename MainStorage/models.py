@@ -1,9 +1,11 @@
 import os
+from django.conf import settings
 from django.db import models
-
+from django.contrib.auth.models import User
 
 # Create your models here.
 class SaveFile(models.Model):
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField("Наименование", max_length=255)
     saveFile = models.FileField("Файл", upload_to='uploads/%Y/%m/%d/')
     file_describe = models.CharField("Описание", max_length=255, blank=True, null=True)

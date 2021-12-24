@@ -19,3 +19,4 @@ class SaveFile(models.Model):
     class Meta:
         verbose_name = 'Файлы на хранении'
         verbose_name_plural = 'Файлы на хранении'
+

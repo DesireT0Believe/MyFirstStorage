@@ -15,6 +15,7 @@ from MyStorage import settings
 from .forms import *
 from .models import *
 from .utils import *
+from django.db import models
 
 
 # Create your views here.
@@ -33,7 +34,9 @@ def addFile(request):
     if request.method == 'POST':
         form = AddFileForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            new_file = form.save(commit=False)
+            new_file.user_id = request.user
+            new_file.save()
             return redirect('storage')
         else:
             print(form.errors)
@@ -59,7 +62,7 @@ def registerUser(request):
         form = UserCreationForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('storage')
+            return redirect("storage")
         else:
             print(form.errors)
     else:

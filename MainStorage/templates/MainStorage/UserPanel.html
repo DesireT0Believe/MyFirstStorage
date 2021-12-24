@@ -21,12 +21,12 @@
     </ul>
     </div>
 
-    <h3>Навигация</h3>
+    {% comment %}<h3>Навигация</h3>
     <ul>
         <a href="{% url 'logout' %}"><li><i class="fas fa-home"></i> Главная</li></a>
         <a href=""><li><i class="fas fa-address-card"></i> Про нас</li></a>
         <a href=""><li><i class="fas fa-paper-plane"></i> Контакты</li></a>
-    </ul>
+    </ul>{% endcomment %}
 </aside>
 
 <div class="yourstorage">
@@ -40,7 +40,9 @@
 
     <tr><th>Наименование</th><th>Файл(download)</th><th>Дата загрузки</th><th>Дата редактирования</th><th>Описание</th></tr>
         {% for p in allFiles %}
-            <tr><td>{{ p.title }}</td><td><a href={{ p.saveFile.url }} download>{{ p.filename }}</a></td><td>{{ p.time_save }}</td><td>{{ p.time_update }}</td><td>{{ p.file_describe }}</td><td><a href="delete/{{p.id}}">Удалить</a></td></tr>
+            {% if p.user_id.username == request.user.username %}
+                <tr><td>{{ p.title }}</td><td><a href={{ p.saveFile.url }} download>{{ p.filename }}</a></td><td>{{ p.time_save }}</td><td>{{ p.time_update }}</td><td>{{ p.file_describe }}</td><td><a href="delete/{{p.id}}">Удалить</a></td></tr>
+            {% endif %}
         {% endfor %}
 </table>
 </div>
